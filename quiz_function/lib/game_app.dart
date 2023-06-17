@@ -5,6 +5,7 @@ import 'package:quiz_app/Quiz/quiz.dart';
 import 'package:quiz_app/Puzzle/puzzle_main.dart';
 import 'package:quiz_app/home_screen.dart';
 import 'package:quiz_app/success_screen.dart';
+import 'package:quiz_app/failure_screen.dart';
 
 class GameApp extends StatefulWidget {
   const GameApp({super.key});

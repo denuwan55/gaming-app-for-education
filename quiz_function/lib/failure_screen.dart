@@ -1,15 +1,14 @@
-import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-class SuccessScreen extends StatefulWidget {
-  const SuccessScreen({super.key});
+class FailScreen extends StatefulWidget {
+  const FailScreen({super.key});
 
   @override
-  State<SuccessScreen> createState() => _SuccessScreenState();
+  State<FailScreen> createState() => _FailScreenState();
 }
 
-class _SuccessScreenState extends State<SuccessScreen> {
+class _FailScreenState extends State<FailScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -28,9 +27,12 @@ class _SuccessScreenState extends State<SuccessScreen> {
           //   ),
           // ),
           Padding(
-            padding: const EdgeInsets.only(left: 155, top: 30),
+            padding: const EdgeInsets.symmetric(
+              vertical: 30,
+              horizontal: 230,
+            ),
             child: Container(
-              width: 500,
+              width: 350,
               height: 300,
               decoration: BoxDecoration(
                 color: Colors.white.withOpacity(0.9),
@@ -38,21 +40,21 @@ class _SuccessScreenState extends State<SuccessScreen> {
               ),
             ),
           ),
+          // Positioned(
+          //   width: 300,
+          //   top: 20,
+          //   left: 250,
+          //   // left: 1,
+          //   child: Lottie.network(
+          //       'https://assets7.lottiefiles.com/packages/lf20_obhph3sh.json'),
+          // ),
           Positioned(
             width: 300,
-            top: 20,
-            left: 250,
+            top: 40,
+            left: 247,
             // left: 1,
             child: Lottie.network(
-                'https://assets7.lottiefiles.com/packages/lf20_obhph3sh.json'),
-          ),
-          Positioned(
-            width: 250,
-            top: 20,
-            left: 280,
-            // left: 1,
-            child: Lottie.network(
-                'https://assets7.lottiefiles.com/datafiles/VtCIGqDsiVwFPNM/data.json'),
+                'https://assets2.lottiefiles.com/packages/lf20_mroczavb.json'),
           ),
           Positioned(
             width: 200,
@@ -84,7 +86,7 @@ class _SuccessScreenState extends State<SuccessScreen> {
                 ),
                 child: const Center(
                   child: Text(
-                    'Continue',
+                    'Try Again',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 30,
