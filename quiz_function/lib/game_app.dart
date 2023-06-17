@@ -4,6 +4,7 @@ import 'package:lottie/lottie.dart';
 import 'package:quiz_app/Quiz/quiz.dart';
 import 'package:quiz_app/Puzzle/puzzle_main.dart';
 import 'package:quiz_app/home_screen.dart';
+import 'package:quiz_app/success_screen.dart';
 
 class GameApp extends StatefulWidget {
   const GameApp({super.key});
@@ -31,10 +32,11 @@ class _GameAppState extends State<GameApp> {
 
   @override
   Widget build(context) {
-    Widget screenWidget = HomeScreen(
-      startQuiz: _switchToQuiz,
-      startPuzzle: _switchToPuzzle,
-    );
+    Widget screenWidget = SuccessScreen();
+    // Widget screenWidget = HomeScreen(
+    //   startQuiz: _switchToQuiz,
+    //   startPuzzle: _switchToPuzzle,
+    // );
 
     if (_activeScreen == 'quiz-screen') {
       screenWidget = const Quiz();
@@ -60,7 +62,6 @@ class _GameAppState extends State<GameApp> {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    child: screenWidget,
                   ),
                   Positioned(
                     width: 300,
@@ -72,6 +73,7 @@ class _GameAppState extends State<GameApp> {
                 ],
               ),
             ),
+            screenWidget,
           ],
         ),
       ),
