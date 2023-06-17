@@ -33,8 +33,7 @@ class _SuccessScreenState extends State<SuccessScreen> {
               width: 500,
               height: 300,
               decoration: BoxDecoration(
-                color:
-                    const Color.fromARGB(255, 231, 234, 232).withOpacity(0.8),
+                color: Colors.white.withOpacity(0.9),
                 borderRadius: const BorderRadius.all(Radius.circular(16)),
               ),
             ),
@@ -60,15 +59,39 @@ class _SuccessScreenState extends State<SuccessScreen> {
             top: 250,
             left: 305,
             // left: 1,
-            child: OutlinedButton(
-              onPressed: () {},
-              style: const ButtonStyle(
-                  alignment: Alignment.center,
-                  backgroundColor:
-                      MaterialStatePropertyAll(Colors.amberAccent)),
-              child: const Text(
-                "Continue",
-                textAlign: TextAlign.center,
+            child: GestureDetector(
+              onTap: () {},
+              child: Container(
+                width: 200,
+                height: 45,
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: <Color>[
+                      Color.fromARGB(255, 14, 222, 97),
+                      Color.fromARGB(255, 14, 194, 116),
+                    ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black12,
+                      offset: Offset(5, 5),
+                      blurRadius: 10,
+                    )
+                  ],
+                ),
+                child: const Center(
+                  child: Text(
+                    'Continue',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 30,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
               ),
             ),
           ),
