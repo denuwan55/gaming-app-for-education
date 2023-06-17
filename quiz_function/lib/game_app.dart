@@ -1,4 +1,6 @@
+import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:quiz_app/Quiz/quiz.dart';
 import 'package:quiz_app/Puzzle/puzzle_main.dart';
 import 'package:quiz_app/home_screen.dart';
@@ -44,43 +46,35 @@ class _GameAppState extends State<GameApp> {
 
     return MaterialApp(
       home: Scaffold(
-          // body: Container(
-          //   decoration: const BoxDecoration(
-          //     gradient: LinearGradient(
-          //       colors: [
-          //         Color.fromARGB(255, 78, 13, 151),
-          //         Color.fromARGB(255, 107, 15, 168),
-          //       ],
-          //       begin: Alignment.topLeft,
-          //       end: Alignment.bottomRight,
-          //     ),
-          //   ),
-          //   child: screenWidget,
-          // ),
-          body: Stack(
-        children: <Widget>[
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/images/background.png"),
-                fit: BoxFit.cover,
+        body: Stack(
+          children: <Widget>[
+            Blur(
+              colorOpacity: 0.1,
+              blur: 1.5,
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("assets/images/background.png"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    child: screenWidget,
+                  ),
+                  Positioned(
+                    width: 300,
+                    top: 120,
+                    // left: 1,
+                    child: Lottie.network(
+                        'https://assets5.lottiefiles.com/packages/lf20_i9mxcD.json'),
+                  ),
+                ],
               ),
-              // gradient: LinearGradient(
-              //   colors: [
-              //     Color.fromARGB(255, 78, 13, 151),
-              //     Color.fromARGB(255, 107, 15, 168),
-              //   ],
-              //   begin: Alignment.topLeft,
-              //   end: Alignment.bottomRight,
-              // ),
             ),
-            child: screenWidget,
-          ),
-          const Center(
-            child: Text("Hello background"),
-          )
-        ],
-      )),
+          ],
+        ),
+      ),
     );
   }
 }
