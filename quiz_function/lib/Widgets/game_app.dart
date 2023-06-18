@@ -3,6 +3,7 @@ import 'package:quiz_app/Data/backgrounds.dart';
 import 'package:quiz_app/Levels/Level1/level1.dart';
 import 'package:quiz_app/Models/background.dart';
 import 'package:quiz_app/Screens/home_screen.dart';
+import 'package:quiz_app/Screens/splash_screen.dart';
 
 class GameApp extends StatefulWidget {
   const GameApp({super.key});
@@ -15,7 +16,7 @@ class GameApp extends StatefulWidget {
 
 class _GameAppState extends State<GameApp> {
   var _currentLevel = 0;
-  var _activeScreen = 'home-screen';
+  var _activeScreen = 'splash-screen';
 
   void _startGame() {
     setState(() {
@@ -24,13 +25,23 @@ class _GameAppState extends State<GameApp> {
     });
   }
 
+  void _afterSplash() {
+    setState(() {
+      _activeScreen = 'home-screen';
+    });
+  }
+
   @override
   Widget build(context) {
-    Widget screenWidget = HomeScreen(
-      startGame: _startGame,
+    Widget screenWidget = SplashScreen(
+      afterSplash: _afterSplash,
     );
 
-    if (_activeScreen == 'level1-screen') {
+    if (_activeScreen == 'home-screen') {
+      screenWidget = HomeScreen(
+        startGame: _startGame,
+      );
+    } else if (_activeScreen == 'level1-screen') {
       screenWidget = Level1();
     }
 
