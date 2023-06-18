@@ -30,23 +30,21 @@ class _SuccessScreenState extends State<SuccessScreen> {
               ),
             ),
           ),
-          // Positioned(
-          //   width: 300,
-          //   top: 20,
-          //   left: 250,
-          //   // left: 1,
-          //   child: Lottie.asset(
-          //     'assets/lotties/trophy.json',
-          //   ),
-          // ),
+          Positioned(
+            width: 300,
+            top: 20,
+            left: 250,
+            // left: 1,
+            child: Lottie.network(
+                'https://assets7.lottiefiles.com/packages/lf20_obhph3sh.json'),
+          ),
           Positioned(
             width: 250,
             top: 20,
             left: 280,
             // left: 1,
-            child: Lottie.asset(
-              'assets/lotties/trophy.json',
-            ),
+            child: Lottie.network(
+                'https://assets7.lottiefiles.com/datafiles/VtCIGqDsiVwFPNM/data.json'),
           ),
           Positioned(
             width: 200,

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({required this.startGame, super.key});
+  const HomeScreen({required this.initiateLevel, super.key});
 
-  final void Function() startGame;
+  final void Function(String) initiateLevel;
 
   @override
   Widget build(context) {
@@ -21,7 +21,9 @@ class HomeScreen extends StatelessWidget {
           ),
           const SizedBox(height: 30),
           OutlinedButton.icon(
-            onPressed: startGame,
+            onPressed: () {
+              initiateLevel('level1-screen');
+            },
             style: OutlinedButton.styleFrom(
               foregroundColor: Colors.white,
             ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:quiz_app/Widgets/Quiz/models/quiz_question.dart';
+
 import 'package:quiz_app/Widgets/Quiz/widgets/answer_button.dart';
-import 'package:quiz_app/Levels/Level1/Data/feature_data.dart';
+import 'package:quiz_app/Widgets/Quiz/data/questions.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({
@@ -19,10 +19,20 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
+  var currentQuestionIndex = 0;
+
+  void answerQuestion(String selectedAnswer) {
+    widget.onSelectAnswer(selectedAnswer);
+    // currentQuestionIndex = currentQuestionIndex + 1;
+    // currentQuestionIndex += 1;
+    setState(() {
+      currentQuestionIndex++; // increments the value by 1
+    });
+  }
+
   @override
   Widget build(context) {
-    final QuizQuestion currentQuestion =
-        featureData["question-screen"] as QuizQuestion;
+    final currentQuestion = questions[currentQuestionIndex];
 
     return SizedBox(
       width: double.infinity,
@@ -46,13 +56,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               return AnswerButton(
                 answerText: answer,
                 onTap: () {
-                  if (answer ==
-                      (featureData["question-screen"] as QuizQuestion)
-                          .answers[0]) {
-                    widget.onSelectAnswer("success-screen");
-                  } else {
-                    widget.onSelectAnswer("failure-screen");
-                  }
+                  answerQuestion(answer);
                 },
               );
             })

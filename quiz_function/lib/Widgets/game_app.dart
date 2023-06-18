@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/Data/backgrounds.dart';
 import 'package:quiz_app/Levels/Level1/level1.dart';
+import 'package:quiz_app/Levels/Level2/level2.dart';
 import 'package:quiz_app/Models/background.dart';
 import 'package:quiz_app/Screens/home_screen.dart';
 import 'package:quiz_app/Screens/splash_screen.dart';
@@ -18,9 +19,9 @@ class _GameAppState extends State<GameApp> {
   var _currentLevel = 0;
   var _activeScreen = 'splash-screen';
 
-  void _startGame() {
+  void _initiateLevel(String level) {
     setState(() {
-      _activeScreen = 'level1-screen';
+      _activeScreen = level;
       _currentLevel++;
     });
   }
@@ -39,10 +40,16 @@ class _GameAppState extends State<GameApp> {
 
     if (_activeScreen == 'home-screen') {
       screenWidget = HomeScreen(
-        startGame: _startGame,
+        initiateLevel: _initiateLevel,
       );
     } else if (_activeScreen == 'level1-screen') {
-      screenWidget = Level1();
+      screenWidget = Level1(
+        initiateLevel: _initiateLevel,
+      );
+    } else if (_activeScreen == 'level2-screen') {
+      screenWidget = Level2(
+        initiateLevel: _initiateLevel,
+      );
     }
 
     return MaterialApp(

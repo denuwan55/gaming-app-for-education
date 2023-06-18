@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/Levels/Level1/Screens/audio_screen.dart';
-import 'package:quiz_app/Levels/Level1/Screens/drag_drop_screen.dart';
-import 'package:quiz_app/Levels/Level1/Screens/level_accomplished_screen.dart';
-import 'package:quiz_app/Levels/Level1/Screens/puzzle_main.dart';
-import 'package:quiz_app/Levels/Level1/Screens/video_screen.dart';
-import 'package:quiz_app/Levels/Level1/Screens/quiz_screen.dart';
-import 'package:quiz_app/Levels/Level1/Screens/failure_screen.dart';
-import 'package:quiz_app/Levels/Level1/Screens/level_splash_screen.dart';
-import 'package:quiz_app/Levels/Level1/Screens/success_screen.dart';
+import 'package:quiz_app/Levels/Level2/Screens/audio_screen.dart';
+import 'package:quiz_app/Levels/Level2/Screens/drag_drop_screen.dart';
+import 'package:quiz_app/Levels/Level2/Screens/puzzle_main.dart';
+import 'package:quiz_app/Levels/Level2/Screens/video_screen.dart';
+import 'package:quiz_app/Levels/Level2/Screens/quiz_screen.dart';
+import 'package:quiz_app/Levels/Level2/Screens/failure_screen.dart';
+import 'package:quiz_app/Levels/Level2/Screens/level_splash_screen.dart';
+import 'package:quiz_app/Levels/Level2/Screens/success_screen.dart';
+import 'package:quiz_app/Widgets/Puzzle/Presentation/Flutter%20%20Pluzzle/pluzzle_page.dart';
 
-class Level1 extends StatefulWidget {
-  const Level1({
+class Level2 extends StatefulWidget {
+  const Level2({
     required this.initiateLevel,
     super.key,
   });
@@ -18,12 +18,12 @@ class Level1 extends StatefulWidget {
   final int currentFeature = 1;
 
   @override
-  State<Level1> createState() {
-    return _Level1State();
+  State<Level2> createState() {
+    return _Level2State();
   }
 }
 
-class _Level1State extends State<Level1> {
+class _Level2State extends State<Level2> {
   // List<String> _selectedAnswers = [];
   var _activeScreen = 'home-screen';
   var _previousScreen = 'Nothing';
@@ -101,8 +101,7 @@ class _Level1State extends State<Level1> {
       if (_activeScreen == 'success-screen') {
         setState(
           () {
-            _activeScreen =
-                'level2-screen'; ////////////////////////////////////
+            _activeScreen = 'home-screen';
           },
         );
       } else if (_activeScreen == 'failure-screen') {
@@ -117,7 +116,7 @@ class _Level1State extends State<Level1> {
 
   @override
   Widget build(context) {
-    Widget screenWidget = Level1SplashScreen(
+    Widget screenWidget = Level2SplashScreen(
       afterSplash: _afterSplash,
     );
 
@@ -155,9 +154,7 @@ class _Level1State extends State<Level1> {
         changeScreen: changeScreenFromSuccessOrFailure,
       );
     } else if (_activeScreen == 'level2-screen') {
-      screenWidget = LevelAccomplishedScreen(
-        levelUp: widget.initiateLevel,
-      );
+      widget.initiateLevel('level2-screen');
     }
 
     return screenWidget;

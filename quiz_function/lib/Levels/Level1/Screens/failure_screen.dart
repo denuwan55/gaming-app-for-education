@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 class FailScreen extends StatefulWidget {
-  const FailScreen({super.key});
-
+  const FailScreen({
+    required this.changeScreen,
+    super.key,
+  });
+  final void Function() changeScreen;
   @override
   State<FailScreen> createState() => _FailScreenState();
 }
@@ -53,8 +56,9 @@ class _FailScreenState extends State<FailScreen> {
             top: 40,
             left: 247,
             // left: 1,
-            child: Lottie.network(
-                'https://assets2.lottiefiles.com/packages/lf20_mroczavb.json'),
+            child: Lottie.asset(
+              'assets/lotties/sad-dog.json',
+            ),
           ),
           Positioned(
             width: 200,
@@ -62,7 +66,9 @@ class _FailScreenState extends State<FailScreen> {
             left: 305,
             // left: 1,
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                widget.changeScreen();
+              },
               child: Container(
                 width: 200,
                 height: 45,
