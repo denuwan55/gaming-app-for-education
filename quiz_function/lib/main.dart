@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/Puzzle/Core/app_string.dart';
-import 'package:quiz_app/Puzzle/Services/hive_db.dart';
+import 'package:quiz_app/Features/Puzzle/Core/app_string.dart';
+import 'package:quiz_app/Features/Puzzle/Services/hive_db.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:quiz_app/game_app.dart';
+import 'package:quiz_app/Widgets/game_app.dart';
 import 'package:flutter/services.dart';
 
 void main() async {
